@@ -4,12 +4,27 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "graphdb",
+    "no server",
+    "persist to file",
+    "persist",
+    "embedded",
+    "sqlite inspiration"
+  ],
+  "author": "Shaik Ikbhal basha",
+  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ikbhal/graphpens.git"
+  },
   "dependencies": {
     "fs": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
   }
 }
