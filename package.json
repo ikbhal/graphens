@@ -2,7 +2,7 @@
   "name": "graphpens",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "graphpens.js",
   "scripts": {
     "test": "mocha"
   },
