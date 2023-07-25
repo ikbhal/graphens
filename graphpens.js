@@ -1,15 +1,27 @@
 const fs = require('fs');
 
-// The graph data will be stored in a simple JSON format.
 let graphData = {
   nodes: [],
   relationships: []
 };
 
+let currentFileName = 'graph_data.json'; // Default filename
+
+function openGraphDatabase(filename = 'graph_data.json') {
+  currentFileName = filename;
+  try {
+    const data = fs.readFileSync(filename, 'utf8');
+    graphData = JSON.parse(data);
+  } catch (error) {
+    graphData = { nodes: [], relationships: [] };
+    saveToFile();
+  }
+}
+
 // Add a node with the given name.
 function addNode(nodeName) {
   graphData.nodes.push({ name: nodeName });
-  saveToFile('graph_data.json');
+  saveToFile();
 }
 
 // Get all nodes.
@@ -32,7 +44,7 @@ function addRelationship(fromNodeName, toNodeName) {
     to: toNodeName
   });
 
-  saveToFile('graph_data.json');
+  saveToFile();
 }
 
 // Helper function to find a node by its name.
@@ -73,12 +85,13 @@ function relationshipExists(fromNodeName, toNodeName) {
 }
 
 // Save the graph data to a local file.
-function saveToFile(filePath) {
+function saveToFile(fileName = currentFileName) {
   const dataToSave = JSON.stringify(graphData, null, 2);
-  fs.writeFileSync(filePath, dataToSave);
+  fs.writeFileSync(fileName, dataToSave);
 }
 
 module.exports = {
+  openGraphDatabase,
   addNode,
   getNodes,
   addRelationship,
