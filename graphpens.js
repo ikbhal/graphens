@@ -9,6 +9,7 @@ let graphData = {
 // Add a node with the given name.
 function addNode(nodeName) {
   graphData.nodes.push({ name: nodeName });
+  saveToFile('graph_data.json');
 }
 
 // Get all nodes.
@@ -30,6 +31,8 @@ function addRelationship(fromNodeName, toNodeName) {
     from: fromNodeName,
     to: toNodeName
   });
+
+  saveToFile('graph_data.json');
 }
 
 // Helper function to find a node by its name.
