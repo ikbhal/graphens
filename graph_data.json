@@ -1,0 +1,23 @@
+{
+  "nodes": [
+    {
+      "name": "Node A"
+    },
+    {
+      "name": "Node B"
+    },
+    {
+      "name": "Node C"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Node A",
+      "to": "Node B"
+    },
+    {
+      "from": "Node B",
+      "to": "Node C"
+    }
+  ]
+}
